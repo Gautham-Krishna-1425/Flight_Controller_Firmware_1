@@ -1,7 +1,7 @@
 from pymavlink import mavutil
 import time, json, math, os
 
-SITL_UDP        = 'udp:127.0.0.1:14540'
+SITL_UDP        = 'udpin:0.0.0.0:14557'
 LOG_FILE        = os.path.join(os.path.dirname(__file__), '../logs/flight_data.json')
 FLIGHT_DURATION = 30
 HOVER_THROTTLE  = 0.50
@@ -77,6 +77,7 @@ def motor_mixer_x(throttle, u_roll, u_pitch, u_yaw):
             clamp(throttle + u_roll + u_pitch + u_yaw))
 
 def run_bridge():
+    import threading
     print("Connecting to PX4 SITL...")
     mav = mavutil.mavlink_connection(SITL_UDP)
     mav.wait_heartbeat()
