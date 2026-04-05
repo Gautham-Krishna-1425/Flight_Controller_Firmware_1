@@ -31,7 +31,7 @@ while iteration < MAX_ITERATIONS:
     iteration += 1
     print(f"\n{'='*55}\n  ITERATION {iteration}/{MAX_ITERATIONS}\n{'='*55}")
 
-    run(['python3', f'{SCRIPTS_DIR}/pid_bridge.py'], "1/4 Flight Simulation", FLIGHT_DURATION+15)
+    run(['python3', f'{SCRIPTS_DIR}/arm_and_bridge.py'], "1/4 Flight Simulation", FLIGHT_DURATION+15)
 
     a = run(['python3', f'{SCRIPTS_DIR}/log_analyzer.py'], "2/4 Analysis", 15)
     result="UNKNOWN"; detail=""
